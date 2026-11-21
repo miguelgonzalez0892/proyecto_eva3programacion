@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Ejercicio 2 - Nombres{% endblock %}
+
+{% block content %}
+<div class="form-card">
+    <form method="POST">
+        <div class="form-group centrado">
+            <label for="nombre1">Nombre 1:</label>
+            <input type="text" id="nombre1" name="nombre1" value="{{ nombre1 }}" required>
+        </div>
+        <div class="form-group centrado">
+            <label for="nombre2">Nombre 2:</label>
+            <input type="text" id="nombre2" name="nombre2" value="{{ nombre2 }}" required>
+        </div>
+        <div class="form-group centrado">
+            <label for="nombre3">Nombre 3:</label>
+            <input type="text" id="nombre3" name="nombre3" value="{{ nombre3 }}" required>
+        </div>
+        <button type="submit" class="btn-submit btn-submit-center">Enviar</button>
+    </form>
+
+    {% if nombre_mayor is not none %}
+    <div class="resultado resultado-centrado">
+        <p>El nombre con mayor cantidad de caracteres es : {{ nombre_mayor }}</p>
+        <p>El nombre tiene : {{ cantidad_caracteres }} caracteres</p>
+    </div>
+    {% endif %}
+
+    <a href="{{ url_for('index') }}" class="volver">← Volver al inicio</a>
+</div>
+{% endblock %}
